@@ -1,0 +1,149 @@
+@import '../fonts/fonts.css';
+@import './github.css';
+
+:root {
+    --margin: 30px;
+    --blue: #1e88e5;
+}
+
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: IBMPlexSans;
+    font-size: 21px;
+    line-height: 1.5;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+img {
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+p {
+    margin-top: var(--margin);
+    margin-bottom: 0px;
+}
+
+.gum-block + p {
+    margin-top: 10px;
+}
+
+code {
+    background-color: #ddd;
+    font-size: 80%;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.grid {
+    background-color: #ffffff;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.button {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--blue);
+    color: #ffffff;
+    padding: 0px 4px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.button:hover {
+    opacity: 0.85;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+ul {
+    margin-top: 20px;
+}
+
+table {
+    margin-top: var(--margin);
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table th, table td {
+    padding: 4px 8px;
+}
+
+table th {
+    border-bottom: 2px solid black;
+    text-align: left;
+}
+
+.gum-block {
+    display: grid;
+}
+
+.gum-block > * {
+    grid-area: 1 / 1;
+}
+
+.gum-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.gum-code {
+    visibility: hidden;
+    width: 85%;
+    font-size: 65%;
+    border-radius: 4px;
+    border: 1px solid rgba(from var(--blue) r g b / 0.4);
+    padding: 10px;
+    background-color: #f8f8f8;
+    overflow-y: auto;
+    margin: var(--margin) auto;
+}
+
+.gum-block.show-code .gum-svg {
+    visibility: hidden;
+}
+
+.gum-block.show-code .gum-code {
+    visibility: visible;
+}

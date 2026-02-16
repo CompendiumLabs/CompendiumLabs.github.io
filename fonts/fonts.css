@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'IBMPlexSans';
+    font-style: normal;
+    src: url('IBMPlexSans-Variable.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IBMPlexMono';
+    font-style: normal;
+    src: url('IBMPlexMono-Regular.ttf') format('truetype');
+}

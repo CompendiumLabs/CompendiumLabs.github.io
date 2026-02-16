@@ -1,16 +1,4 @@
-@font-face {
-    font-family: 'IBMPlexSans';
-    font-style: normal;
-    font-weight: 400;
-    src: url('fonts/IBMPlexSans-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'IBMPlexSans';
-    font-style: normal;
-    font-weight: 700;
-    src: url('fonts/IBMPlexSans-Bold.ttf') format('truetype');
-}
+@import 'fonts.css';
 
 html, body {
     background-color: #1F1F1F;
