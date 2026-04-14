@@ -6,6 +6,8 @@ const ringHeight = 0.0225 // vertical extent of each ring
 const ringGap = 0.025 // gap between rings
 const ringAngle = 15 // degrees clockwise (long edges vs. horizontal)
 const edgeAngle = 38 // degrees counterclockwise (short edges vs. vertical)
+const chunkPos = [0.62, 0.28] // position of the top-right chunk of the planet
+const chunkSize = 0.08 // size of the top-right chunk of the planet
 
 // get fill color from theme
 const fill = theme === 'dark' ? white : black
@@ -36,11 +38,12 @@ const Ring = ({ x1, x2, yc, h, fill }) => {
   return <Shape points={points} fill={fill} stroke={none} />
 }
 
-// make a mask for the rings
+// make a mask for the rings (plus a bite out of the planet's top-right)
 const Mask = ({ h }) => {
   return <Group>
     <Rect fill={white} stroke={none} />
     <Ring x1={-0.1} x2={1.1} yc={0.5} h={h} fill={black} />
+    <Circle pos={chunkPos} size={chunkSize} fill={black} stroke={none} />
   </Group>
 }
 
