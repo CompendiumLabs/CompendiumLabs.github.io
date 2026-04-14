@@ -11,6 +11,7 @@ const chunkSize = 0.08 // size of the top-right chunk of the planet
 
 // get fill color from theme
 const fill = theme === 'dark' ? white : black
+const background = theme === 'dark' ? '#1F1F1F' : none
 
 // per-ring horizontal extents: [x1, x2]
 const rings = [
@@ -53,9 +54,11 @@ const ringCenters = offsets.map(i => 0.5 + i * (ringHeight + ringGap))
 const maskHeight = rings.length * ringHeight + (rings.length + 1) * ringGap
 
 // render the figure
-return <Group aspect={aspect}>
-  <Group mask={<Mask h={maskHeight} />}>
-    <Circle pos={[0.5, 0.5]} size={0.52} fill={fill} stroke={none} />
+return <Box aspect rounded={0.2} fill={background}>
+  <Group aspect={aspect}>
+    <Group mask={<Mask h={maskHeight} />}>
+      <Circle pos={[0.5, 0.5]} size={0.52} fill={fill} stroke={none} />
+    </Group>
+    {rings.map(([x1, x2], i) => <Ring x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} fill={fill} />)}
   </Group>
-  {rings.map(([x1, x2], i) => <Ring x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} fill={fill} />)}
-</Group>
+</Box>
