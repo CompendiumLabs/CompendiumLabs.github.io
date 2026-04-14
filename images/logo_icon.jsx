@@ -2,10 +2,13 @@
 
 // figure parameters
 const aspect = 1.1456 // aspect ratio of the figure
-const ringHeight = 0.025 // vertical extent of each ring
-const ringGap = 0.0225 // gap between rings
+const ringHeight = 0.0225 // vertical extent of each ring
+const ringGap = 0.025 // gap between rings
 const ringAngle = 15 // degrees clockwise (long edges vs. horizontal)
-const edgeAngle = 42 // degrees counterclockwise (short edges vs. vertical)
+const edgeAngle = 38 // degrees counterclockwise (short edges vs. vertical)
+
+// get fill color from theme
+const fill = theme === 'dark' ? white : black
 
 // per-ring horizontal extents: [x1, x2]
 const rings = [
@@ -17,7 +20,7 @@ const rings = [
 
 // ring component — x1/x2 are the x-coords of the left/right short-edge centers;
 // yc is the y-coord of the ring midline at x=0.5; h is the visual vertical
-const Ring = ({ x1, x2, yc, h, ...attr }) => {
+const Ring = ({ x1, x2, yc, h, fill }) => {
   const tanE = tan(edgeAngle * d2r)
   const dyPerDx = tan(ringAngle * d2r)
   const hI = h / (1 - tanE * dyPerDx)
@@ -30,7 +33,15 @@ const Ring = ({ x1, x2, yc, h, ...attr }) => {
     [x2 + dx / 2, yR + hI / 2],
     [x1 + dx / 2, yL + hI / 2],
   ]
-  return <Shape points={points} fill={black} stroke={none} {...attr} />
+  return <Shape points={points} fill={fill} stroke={none} />
+}
+
+// make a mask for the rings
+const Mask = ({ h }) => {
+  return <Group>
+    <Rect fill={white} stroke={none} />
+    <Ring x1={-0.1} x2={1.1} yc={0.5} h={h} fill={black} />
+  </Group>
 }
 
 // compute ring centers evenly spaced around y=0.5
@@ -40,7 +51,8 @@ const maskHeight = rings.length * ringHeight + (rings.length + 1) * ringGap
 
 // render the figure
 return <Group aspect={aspect}>
-  <Circle pos={[0.5, 0.5]} size={0.52} fill={black} stroke={none} />
-  <Ring x1={-0.1} x2={1.1} yc={0.5} h={maskHeight} fill={white} />
-  {rings.map(([x1, x2], i) => <Ring x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} />)}
+  <Group mask={<Mask h={maskHeight} />}>
+    <Circle pos={[0.5, 0.5]} size={0.52} fill={fill} stroke={none} />
+  </Group>
+  {rings.map(([x1, x2], i) => <Ring x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} fill={fill} />)}
 </Group>
