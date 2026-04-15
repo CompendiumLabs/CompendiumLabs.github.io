@@ -1,7 +1,11 @@
 // Compendium Labs logo icon: stylized planet with jagged parallelogram rings
 
+// gum images/logo_icon.jsx -t light -s 32 -o images/logo_icon_light.svg
+// gum images/logo_icon.jsx -t dark -s 32 -o images/logo_icon_dark.svg
+
 // figure parameters
 const aspect = 1.1456 // aspect ratio of the figure
+const planetSize = 0.52 // size of the planet
 const ringHeight = 0.0225 // vertical extent of each ring
 const ringGap = 0.025 // gap between rings
 const ringAngle = 15 // degrees clockwise (long edges vs. horizontal)
@@ -11,7 +15,7 @@ const chunkSize = 0.08 // size of the top-right chunk of the planet
 
 // get fill color from theme
 const fill = theme === 'dark' ? white : black
-const background = theme === 'dark' ? '#1F1F1F' : none
+const background = theme === 'dark' ? '#1f1f1f' : white
 
 // per-ring horizontal extents: [x1, x2]
 const rings = [
@@ -57,7 +61,7 @@ const maskHeight = rings.length * ringHeight + (rings.length + 1) * ringGap
 return <Box aspect rounded={0.2} fill={background}>
   <Group aspect={aspect}>
     <Group mask={<Mask h={maskHeight} />}>
-      <Circle pos={[0.5, 0.5]} size={0.52} fill={fill} stroke={none} />
+      <Circle size={planetSize} fill={fill} stroke={none} />
     </Group>
     {rings.map(([x1, x2], i) => <Ring x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} fill={fill} />)}
   </Group>
