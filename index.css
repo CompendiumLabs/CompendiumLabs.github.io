@@ -1,7 +1,9 @@
 @import 'fonts/fonts.css';
 
-html, body {
+html {
+    font-family: 'IBMPlexSans';
     background-color: #1F1F1F;
+    color: #FDFFFF;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -9,52 +11,53 @@ html, body {
     overflow: hidden;
 }
 
-#banner {
-    background-image: url('images/logo_planet_large_upscale_touchup.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    top: -35vh;
-    left: 0px;
+a {
+    color: #0099FF;
+    text-decoration: none;
+}
+
+#outer {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+#logo {
+    width: min(600px, 60%);
+    height: auto;
+}
+
+#logo > img {
     width: 100%;
-    height: 150vh;
+    height: 100%;
 }
 
 #tags {
     display: flex;
     justify-content: center;
-    position: absolute;
-    top: 57vh;
-    left: 0px;
-    width: 100%;
     gap: 12px;
 }
 
 #hello {
-    font-family: 'IBMPlexSans';
-    position: absolute;
-    top: 20vh;
-    left: 0px;
-    width: 100%;
     text-align: center;
     font-size: 24px;
 }
 
-#hello > a {
-    color: #FDFFFF;
+#blog {
+    font-size: 32px;
+    margin-top: 128px;
 }
 
 #name {
-    font-family: 'IBMPlexSans';
     font-weight: bold;
-    position: absolute;
-    top: 65vh;
-    left: 0px;
-    width: 100%;
-    text-align: center;
     color: #FDFFFF;
-    font-size: 64px;
+    font-size: 48px;
 }
 
 #tags > a > img {
