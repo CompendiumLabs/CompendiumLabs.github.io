@@ -19,14 +19,14 @@ const socials: SocialLink[] = [
 
 export default function App() {
   return (
-    <div className="relative mx-auto flex h-full w-3/5 max-md:w-4/5 flex-col items-center justify-center gap-6 pt-24">
-      <Gum size={1000} theme="dark">
+    <div className="relative mx-auto flex h-full w-3/5 max-md:w-11/12 flex-col items-center justify-center gap-6 pt-24 max-md:pt-12">
+      <Gum size={1000} theme="dark" className="gum-fluid w-full max-w-[800px]">
         <Logo aspect={2} theme="dark" />
       </Gum>
 
-      <div className="text-5xl font-bold max-md:text-7xl">Compendium Labs</div>
+      <div className="text-5xl font-bold max-md:text-4xl">Compendium Labs</div>
 
-      <div className="text-2xl max-md:text-5xl">
+      <div className="text-2xl max-md:text-2xl">
         <a href="mailto:hello@compendiumlabs.ai">hello@compendiumlabs.ai</a>
       </div>
 
@@ -38,7 +38,7 @@ export default function App() {
         ))}
       </div>
 
-      <div className="mt-32 text-3xl">
+      <div className="mt-32 max-md:mt-12 text-3xl max-md:text-4xl text-center">
         NEW: Check out the{' '}
         <a href="https://compendiumlabs.ai/blog/gum">Gum blog post</a>!
       </div>

@@ -31,10 +31,20 @@ html {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-fg);
-  overflow: hidden;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  html { overflow-y: hidden; }
 }
 
 a {
   color: var(--color-link);
   text-decoration: none;
+}
+
+.gum-fluid > svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
