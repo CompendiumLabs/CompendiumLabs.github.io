@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'IBMPlexSans';
+  font-style: normal;
+  src: url('./fonts/IBMPlexSans-Variable.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IBMPlexMono';
+  font-style: normal;
+  src: url('./fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+@theme {
+  --font-sans: 'IBMPlexSans', sans-serif;
+  --font-mono: 'IBMPlexMono', monospace;
+  --color-bg: #1F1F1F;
+  --color-fg: #FDFFFF;
+  --color-link: #0099FF;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  overflow: hidden;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}

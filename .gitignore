@@ -1,1 +1,4 @@
 .codex
+node_modules
+bun.lock
+tsconfig.tsbuildinfo
