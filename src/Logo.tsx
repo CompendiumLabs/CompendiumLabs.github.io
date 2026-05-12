@@ -58,19 +58,17 @@ type LogoProps = {
   className?: string
 }
 
-export default function Logo({ size = 500, theme = 'dark', aspect = 1, className }: LogoProps) {
+export default function Logo({ theme = 'dark', aspect = 1 }: LogoProps) {
   const fill = theme === 'dark' ? white : black
   const background = theme === 'dark' ? '#1f1f1f' : white
-  return <Gum size={size} theme={theme} className={className}>
-    <Box fill={background} aspect={aspect}>
-      <Group aspect={innerAspect}>
-        <Group mask={<Mask h={maskHeight} />}>
-          <Circle size={planetSize} fill={fill} stroke={none} />
-        </Group>
-        {rings.map(([x1, x2], i) => (
-          <Ring key={i} x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} fill={fill} />
-        ))}
+  return <Box fill={background} aspect={aspect}>
+    <Group aspect={innerAspect}>
+      <Group mask={<Mask h={maskHeight} />}>
+        <Circle size={planetSize} fill={fill} stroke={none} />
       </Group>
-    </Box>
-  </Gum>
+      {rings.map(([x1, x2], i) => (
+        <Ring key={i} x1={x1} x2={x2} yc={ringCenters[i]} h={ringHeight} fill={fill} />
+      ))}
+    </Group>
+  </Box>
 }

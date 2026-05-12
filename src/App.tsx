@@ -2,6 +2,7 @@ import Logo from './Logo'
 import xLogo from './images/x-logo.svg'
 import githubLogo from './images/github-logo.svg'
 import hfLogo from './images/hf-logo-pirate.svg'
+import { Gum } from 'react-gum-jsx'
 
 type SocialLink = {
   href: string
@@ -18,8 +19,10 @@ const socials: SocialLink[] = [
 
 export default function App() {
   return (
-    <div className="relative mx-auto flex h-full w-3/5 max-md:w-4/5 flex-col items-center justify-center gap-6">
-      <Logo size={1000} theme="dark" aspect={2} />
+    <div className="relative mx-auto flex h-full w-3/5 max-md:w-4/5 flex-col items-center justify-center gap-6 pt-24">
+      <Gum size={1000} theme="dark">
+        <Logo aspect={2} theme="dark" />
+      </Gum>
 
       <div className="text-5xl font-bold max-md:text-7xl">Compendium Labs</div>
 
