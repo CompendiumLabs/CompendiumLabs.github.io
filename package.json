@@ -19,6 +19,6 @@
     "gum-jsx": "^1.6.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-gum-jsx": "github:CompendiumLabs/react-gum-jsx"
+    "react-gum-jsx": "^0.1.0"
   }
 }
